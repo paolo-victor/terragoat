@@ -1,4 +1,5 @@
 resource "aws_elasticsearch_domain" "monitoring-framework" {
+  # Drata: Set [aws_elasticsearch_domain.cluster_config.zone_awareness_enabled] to true to improve infrastructure availability and resilience
   domain_name           = "tg-${var.environment}-es"
   elasticsearch_version = "2.3"
 
