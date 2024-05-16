@@ -1,4 +1,5 @@
 resource "azurerm_storage_account" "security_storage_account" {
+  # Drata: Set [azurerm_storage_account.min_tls_version] to TLS1_2 to ensure security policies are configured using the latest secure TLS version
   name                      = "securitystorageaccount-${var.environment}${random_integer.rnd_int.result}"
   resource_group_name       = azurerm_resource_group.example.name
   location                  = azurerm_resource_group.example.location
@@ -21,7 +22,7 @@ resource "azurerm_mssql_server" "mssql1" {
   name                         = "terragoat-mssql1-${var.environment}${random_integer.rnd_int.result}"
   resource_group_name          = azurerm_resource_group.example.name
   location                     = azurerm_resource_group.example.location
-  version                      = "12.0"
+  version                      = 1.2
   administrator_login          = "missadministrator"
   administrator_login_password = "AdminPassword123!"
   tags = {
@@ -40,7 +41,7 @@ resource "azurerm_mssql_server" "mssql2" {
   name                         = "mssql2-${var.environment}${random_integer.rnd_int.result}"
   resource_group_name          = azurerm_resource_group.example.name
   location                     = azurerm_resource_group.example.location
-  version                      = "12.0"
+  version                      = 1.2
   administrator_login          = "missadministrator"
   administrator_login_password = "AdminPassword123!"
   tags = {
@@ -59,7 +60,7 @@ resource "azurerm_mssql_server" "mssql3" {
   name                         = "mssql3-${var.environment}${random_integer.rnd_int.result}"
   resource_group_name          = azurerm_resource_group.example.name
   location                     = azurerm_resource_group.example.location
-  version                      = "12.0"
+  version                      = 1.2
   administrator_login          = "missadministrator"
   administrator_login_password = "AdminPassword123!"
   tags = {
@@ -78,7 +79,7 @@ resource "azurerm_mssql_server" "mssql4" {
   name                         = "mssql4-${var.environment}${random_integer.rnd_int.result}"
   resource_group_name          = azurerm_resource_group.example.name
   location                     = azurerm_resource_group.example.location
-  version                      = "12.0"
+  version                      = 1.2
   administrator_login          = "missadministrator"
   administrator_login_password = "AdminPassword123!"
   tags = {
@@ -97,7 +98,7 @@ resource "azurerm_mssql_server" "mssql5" {
   name                         = "mssql5-${var.environment}${random_integer.rnd_int.result}"
   resource_group_name          = azurerm_resource_group.example.name
   location                     = azurerm_resource_group.example.location
-  version                      = "12.0"
+  version                      = 1.2
   administrator_login          = "missadministrator"
   administrator_login_password = "AdminPassword123!"
   tags = {
@@ -116,7 +117,7 @@ resource "azurerm_mssql_server" "mssql6" {
   name                         = "mssql6-${var.environment}${random_integer.rnd_int.result}"
   resource_group_name          = azurerm_resource_group.example.name
   location                     = azurerm_resource_group.example.location
-  version                      = "12.0"
+  version                      = 1.2
   administrator_login          = "missadministrator"
   administrator_login_password = "AdminPassword123!"
   tags = {
@@ -135,7 +136,7 @@ resource "azurerm_mssql_server" "mssql7" {
   name                         = "mssql7-${var.environment}${random_integer.rnd_int.result}"
   resource_group_name          = azurerm_resource_group.example.name
   location                     = azurerm_resource_group.example.location
-  version                      = "12.0"
+  version                      = 1.2
   administrator_login          = "missadministrator"
   administrator_login_password = "AdminPassword123!"
   tags = {

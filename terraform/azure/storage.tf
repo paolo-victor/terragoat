@@ -37,7 +37,7 @@ resource "azurerm_storage_account" "example" {
     hour_metrics {
       enabled               = true
       include_apis          = true
-      version               = "1.0"
+      version               = "TLS1_2"
       retention_policy_days = 10
     }
     minute_metrics {
