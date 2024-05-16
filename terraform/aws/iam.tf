@@ -27,6 +27,8 @@ resource "aws_iam_user_policy" "userpolicy" {
   user = "${aws_iam_user.user.name}"
 
   policy = <<EOF
+  # Drata: Explicitly scope [aws_iam_user_policy.policy] resource to ensure minimum necessary access. Avoid using insecure allow-all ([*]) access patterns. It is recommended to use group policies over user policies when possible.
+  # Drata: Explicitly scope [aws_iam_user_policy.policy] action to ensure minimum necessary access. Avoid using insecure allow-all (*) access patterns. It is recommended to use group policies over user policies when possible.
 {
   "Version": "2012-10-17",
   "Statement": [
