@@ -5,6 +5,7 @@ resource "google_compute_network" "vpc" {
 }
 
 resource "google_compute_subnetwork" "public-subnetwork" {
+  # Drata: Configure [google_compute_subnetwork.log_config] to ensure that security-relevant events are logged to detect malicious activity
   name          = "terragoat-${var.environment}-public-subnetwork"
   ip_cidr_range = "10.0.0.0/24"
   region        = var.region
@@ -17,6 +18,7 @@ resource "google_compute_subnetwork" "public-subnetwork" {
 }
 
 resource "google_compute_firewall" "allow_all" {
+  # Drata: Configure [google_compute_firewall.log_config] to ensure that security-relevant events are logged to detect malicious activity
   name          = "terragoat-${var.environment}-firewall"
   network       = google_compute_network.vpc.id
   source_ranges = ["0.0.0.0/0"]

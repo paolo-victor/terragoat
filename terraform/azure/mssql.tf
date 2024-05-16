@@ -1,9 +1,12 @@
 resource "azurerm_storage_account" "security_storage_account" {
+  # Drata: Configure [azurerm_storage_account.public_network_access_enabled] to false to disable public access. It is recommended to explicitly allow access to trusted users or IPs. For Storage Accounts that don't require public access it is recommended to use private endpoints to only grant private access
+  # Drata: Set [azurerm_storage_account.min_tls_version] to TLS1_2 to ensure security policies are configured using the latest secure TLS version
   name                      = "securitystorageaccount-${var.environment}${random_integer.rnd_int.result}"
   resource_group_name       = azurerm_resource_group.example.name
   location                  = azurerm_resource_group.example.location
   account_tier              = "Standard"
   account_replication_type  = "LRS"
+  # Drata: Configure [azurerm_storage_account.account_replication_type] to improve infrastructure availability and resilience. To create highly available Storage Accounts, set azurerm_storage_account.account_replication_type to a geo-redundant storage option by selecting one of the following SKUs: ['standard_grs', 'standard_gzrs', 'standard_ragrs', 'standard_ragzrs', 'grs', 'gzrs', 'ragrs', 'ragzrs']
   enable_https_traffic_only = true
   tags = {
     git_commit           = "a1d1c1ce31a1bde6dafa188846d90eca82abe5fd"
@@ -18,10 +21,11 @@ resource "azurerm_storage_account" "security_storage_account" {
 }
 
 resource "azurerm_mssql_server" "mssql1" {
+  # Drata: Configure [azurerm_mssql_server.public_network_access_enabled] to false to disable public access. It is recommended to explicitly allow access to trusted users or IPs
   name                         = "terragoat-mssql1-${var.environment}${random_integer.rnd_int.result}"
   resource_group_name          = azurerm_resource_group.example.name
   location                     = azurerm_resource_group.example.location
-  version                      = "12.0"
+  version                      = 1.2
   administrator_login          = "missadministrator"
   administrator_login_password = "AdminPassword123!"
   tags = {
@@ -37,10 +41,11 @@ resource "azurerm_mssql_server" "mssql1" {
 }
 
 resource "azurerm_mssql_server" "mssql2" {
+  # Drata: Configure [azurerm_mssql_server.public_network_access_enabled] to false to disable public access. It is recommended to explicitly allow access to trusted users or IPs
   name                         = "mssql2-${var.environment}${random_integer.rnd_int.result}"
   resource_group_name          = azurerm_resource_group.example.name
   location                     = azurerm_resource_group.example.location
-  version                      = "12.0"
+  version                      = 1.2
   administrator_login          = "missadministrator"
   administrator_login_password = "AdminPassword123!"
   tags = {
@@ -56,10 +61,11 @@ resource "azurerm_mssql_server" "mssql2" {
 }
 
 resource "azurerm_mssql_server" "mssql3" {
+  # Drata: Configure [azurerm_mssql_server.public_network_access_enabled] to false to disable public access. It is recommended to explicitly allow access to trusted users or IPs
   name                         = "mssql3-${var.environment}${random_integer.rnd_int.result}"
   resource_group_name          = azurerm_resource_group.example.name
   location                     = azurerm_resource_group.example.location
-  version                      = "12.0"
+  version                      = 1.2
   administrator_login          = "missadministrator"
   administrator_login_password = "AdminPassword123!"
   tags = {
@@ -75,10 +81,11 @@ resource "azurerm_mssql_server" "mssql3" {
 }
 
 resource "azurerm_mssql_server" "mssql4" {
+  # Drata: Configure [azurerm_mssql_server.public_network_access_enabled] to false to disable public access. It is recommended to explicitly allow access to trusted users or IPs
   name                         = "mssql4-${var.environment}${random_integer.rnd_int.result}"
   resource_group_name          = azurerm_resource_group.example.name
   location                     = azurerm_resource_group.example.location
-  version                      = "12.0"
+  version                      = 1.2
   administrator_login          = "missadministrator"
   administrator_login_password = "AdminPassword123!"
   tags = {
@@ -94,10 +101,11 @@ resource "azurerm_mssql_server" "mssql4" {
 }
 
 resource "azurerm_mssql_server" "mssql5" {
+  # Drata: Configure [azurerm_mssql_server.public_network_access_enabled] to false to disable public access. It is recommended to explicitly allow access to trusted users or IPs
   name                         = "mssql5-${var.environment}${random_integer.rnd_int.result}"
   resource_group_name          = azurerm_resource_group.example.name
   location                     = azurerm_resource_group.example.location
-  version                      = "12.0"
+  version                      = 1.2
   administrator_login          = "missadministrator"
   administrator_login_password = "AdminPassword123!"
   tags = {
@@ -113,10 +121,11 @@ resource "azurerm_mssql_server" "mssql5" {
 }
 
 resource "azurerm_mssql_server" "mssql6" {
+  # Drata: Configure [azurerm_mssql_server.public_network_access_enabled] to false to disable public access. It is recommended to explicitly allow access to trusted users or IPs
   name                         = "mssql6-${var.environment}${random_integer.rnd_int.result}"
   resource_group_name          = azurerm_resource_group.example.name
   location                     = azurerm_resource_group.example.location
-  version                      = "12.0"
+  version                      = 1.2
   administrator_login          = "missadministrator"
   administrator_login_password = "AdminPassword123!"
   tags = {
@@ -132,10 +141,11 @@ resource "azurerm_mssql_server" "mssql6" {
 }
 
 resource "azurerm_mssql_server" "mssql7" {
+  # Drata: Configure [azurerm_mssql_server.public_network_access_enabled] to false to disable public access. It is recommended to explicitly allow access to trusted users or IPs
   name                         = "mssql7-${var.environment}${random_integer.rnd_int.result}"
   resource_group_name          = azurerm_resource_group.example.name
   location                     = azurerm_resource_group.example.location
-  version                      = "12.0"
+  version                      = 1.2
   administrator_login          = "missadministrator"
   administrator_login_password = "AdminPassword123!"
   tags = {

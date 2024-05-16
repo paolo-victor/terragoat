@@ -1,4 +1,5 @@
 resource "google_sql_database_instance" "master_instance" {
+  # Drata: Set [google_sql_database_instance.settings.ip_configuration.require_ssl] to True to ensure secure protocols are being used to encrypt resource traffic
   name             = "terragoat-${var.environment}-master"
   database_version = "POSTGRES_11"
   region           = var.region
@@ -13,7 +14,8 @@ resource "google_sql_database_instance" "master_instance" {
       }
     }
     backup_configuration {
-      enabled = false
+      enabled = true
+    # Drata: Ensure that SQL database instance is not publicly accessible by giving it a private IP. Define [google_sql.sql_database_instance.settings.ip_configuration.private_network] to use private IPs while connecting to SQL database instance
     }
   }
 }
@@ -22,6 +24,7 @@ resource "google_bigquery_dataset" "dataset" {
   dataset_id = "terragoat_${var.environment}_dataset"
   access {
     special_group = "allAuthenticatedUsers"
+    # Drata: Explicitly scope [google_bigquery_dataset.access.special_group] to ensure minimum necessary access. Avoid using insecure allow-all ([allusers, allauthenticatedusers]) access patterns
     role          = "READER"
   }
   labels = {

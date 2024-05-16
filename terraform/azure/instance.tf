@@ -42,6 +42,7 @@ resource azurerm_linux_virtual_machine "linux_machine" {
 }
 
 resource azurerm_windows_virtual_machine "windows_machine" {
+  # Drata: Set [azurerm_windows_virtual_machine.encryption_at_host_enabled] to true to ensure transparent data encryption is enabled. This setting ensures temporary disks, caches, and data flows between Azure VM and Storage are encrypted.
   admin_password        = random_string.password.result
   admin_username        = "tg-${var.environment}"
   location              = var.location

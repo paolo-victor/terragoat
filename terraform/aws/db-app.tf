@@ -14,12 +14,13 @@ resource "aws_db_instance" "default" {
   username                = "admin"
   password                = var.password
   apply_immediately       = true
-  multi_az                = false
+  multi_az                = true
   backup_retention_period = 0
-  storage_encrypted       = false
+  # Drata: Specify [aws_db_instance.backup_retention_period] to ensure sensitive data is only available when necessary. Setting backup retention to 0 will disable automatic backups
+  storage_encrypted       = true
   skip_final_snapshot     = true
   monitoring_interval     = 0
-  publicly_accessible     = true
+  publicly_accessible     = false
 
   tags = merge({
     Name        = "${local.resource_prefix.value}-rds"
@@ -208,6 +209,8 @@ resource "aws_iam_role_policy" "ec2policy" {
   role = aws_iam_role.ec2role.id
 
   policy = <<EOF
+  # Drata: Explicitly scope [aws_iam_role.inline_policy.policy] resource to ensure minimum necessary access. Avoid using insecure allow-all ([*]) access patterns
+  # Drata: Explicitly scope [aws_iam_role.inline_policy.policy] action to ensure minimum necessary access. Avoid using insecure allow-all (*) access patterns
 {
   "Version": "2012-10-17",
   "Statement": [

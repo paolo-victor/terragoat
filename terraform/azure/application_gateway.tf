@@ -1,11 +1,12 @@
 resource "azurerm_application_gateway" "network" {
+  # Drata: Configure [azurerm_application_gateway.ssl_policy] to use latest or secure ciphers for data in transit encryption. It is recommended to select either a predefined or custom policy type. For most use-cases predefined policy types will suffice, if more specific cipher suite requirements are needed, define a custom policy type
   name                = "example-appgateway"
   resource_group_name = "example-resourceGroup"
   location            = "example --West-US"
 
   sku {
     name     = "Standard_Small"
-    tier     = "Standard"
+    tier     = "Standard" # Drata: sku.tier should be set to any of Standard_V2, WAF_V2
     capacity = 2
   }
 
@@ -35,7 +36,7 @@ resource "azurerm_application_gateway" "network" {
     cookie_based_affinity = "Disabled"
     path                  = "/path1/"
     port                  = 80
-    protocol              = "Http"
+    protocol              = "https"
     request_timeout       = 60
   }
 
