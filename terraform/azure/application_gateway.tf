@@ -5,7 +5,7 @@ resource "azurerm_application_gateway" "network" {
 
   sku {
     name     = "Standard_Small"
-    tier     = "Standard"
+    tier     = "Standard" # Drata: sku.tier should be set to any of Standard_V2, WAF_V2
     capacity = 2
   }
 
