@@ -95,6 +95,7 @@ resource "aws_rds_cluster" "app6-rds-cluster" {
 }
 
 resource "aws_rds_cluster" "app7-rds-cluster" {
+  # Drata: Configure [aws_rds_cluster.availability_zones] to improve infrastructure availability and resilience
   cluster_identifier      = "app7-rds-cluster"
   allocated_storage       = 10
   backup_retention_period = 25
