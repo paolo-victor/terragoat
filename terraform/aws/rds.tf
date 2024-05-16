@@ -128,6 +128,7 @@ resource "aws_rds_cluster" "app8-rds-cluster" {
 }
 
 resource "aws_rds_cluster" "app9-rds-cluster" {
+  # Drata: Configure [aws_rds_cluster.availability_zones] to improve infrastructure availability and resilience
   # Drata: Set [aws_rds_cluster.storage_encrypted] to true to ensure transparent data encryption is enabled
   cluster_identifier      = "app9-rds-cluster"
   allocated_storage       = 10
