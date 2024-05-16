@@ -16,6 +16,7 @@ resource "aws_db_instance" "default" {
   apply_immediately       = true
   multi_az                = false
   backup_retention_period = 0
+  # Drata: Specify [aws_db_instance.backup_retention_period] to ensure sensitive data is only available when necessary. Setting backup retention to 0 will disable automatic backups
   storage_encrypted       = false
   skip_final_snapshot     = true
   monitoring_interval     = 0

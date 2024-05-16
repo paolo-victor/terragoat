@@ -2,6 +2,7 @@ resource "aws_rds_cluster" "app1-rds-cluster" {
   cluster_identifier      = "app1-rds-cluster"
   allocated_storage       = 10
   backup_retention_period = 0
+  # Drata: Specify [aws_rds_cluster.backup_retention_period] to ensure sensitive data is only available when necessary. Setting backup retention to 0 will disable automatic backups
   tags = {
     git_commit           = "079fe74f6b96d887c245664fbd8cf676c92f20e5"
     git_file             = "terraform/aws/rds.tf"
@@ -18,6 +19,7 @@ resource "aws_rds_cluster" "app2-rds-cluster" {
   cluster_identifier      = "app2-rds-cluster"
   allocated_storage       = 10
   backup_retention_period = 1
+  # Drata: Specify [aws_rds_cluster.backup_retention_period] to ensure sensitive data is only available when necessary. It is recommended to configure a non-default value appropriate for your specific use-case. AWS defaults to 7 days
   tags = {
     git_commit           = "079fe74f6b96d887c245664fbd8cf676c92f20e5"
     git_file             = "terraform/aws/rds.tf"
