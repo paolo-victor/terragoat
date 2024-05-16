@@ -1,4 +1,5 @@
 resource "aws_elasticsearch_domain" "monitoring-framework" {
+  # Drata: Set [aws_elasticsearch_domain.node_to_node_encryption.enabled] to true to ensure secure protocols are being used to encrypt resource traffic. This setting ensures communication between OpenSearch cluster nodes is encrypted
   # Drata: Set [aws_elasticsearch_domain.domain_endpoint_options.enforce_https] to true to ensure secure protocols are being used to encrypt resource traffic
   # Drata: Set [aws_elasticsearch_domain.domain_endpoint_options.tls_security_policy] to Policy-Min-TLS-1-2-2019-07 to ensure security policies are configured using the latest secure TLS version
   # Drata: Set [aws_elasticsearch_domain.cluster_config.zone_awareness_enabled] to true to improve infrastructure availability and resilience
