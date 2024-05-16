@@ -21,6 +21,7 @@ resource "azurerm_managed_disk" "example" {
 }
 
 resource "azurerm_storage_account" "example" {
+  # Drata: Set [azurerm_storage_account.enable_https_traffic_only] to true to ensure secure protocols are being used to encrypt resource traffic
   name                     = "tgsa${var.environment}${random_integer.rnd_int.result}"
   resource_group_name      = azurerm_resource_group.example.name
   location                 = azurerm_resource_group.example.location
