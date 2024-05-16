@@ -132,6 +132,7 @@ resource "azurerm_mssql_server" "mssql6" {
 }
 
 resource "azurerm_mssql_server" "mssql7" {
+  # Drata: Configure [azurerm_mssql_server.public_network_access_enabled] to false to disable public access. It is recommended to explicitly allow access to trusted users or IPs
   name                         = "mssql7-${var.environment}${random_integer.rnd_int.result}"
   resource_group_name          = azurerm_resource_group.example.name
   location                     = azurerm_resource_group.example.location
