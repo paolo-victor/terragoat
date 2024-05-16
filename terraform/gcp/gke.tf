@@ -22,6 +22,7 @@ resource "google_container_cluster" "workload_cluster" {
 }
 
 resource "google_container_node_pool" "custom_node_pool" {
+  # Drata: Set [google_container_node_pool.management.auto_upgrade] to true to automatically update nodes in the cluster to the latest control plane version
   cluster  = google_container_cluster.workload_cluster.name
   location = var.region
 
