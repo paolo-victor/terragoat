@@ -1,4 +1,5 @@
 resource "azurerm_storage_account" "security_storage_account" {
+  # Drata: Configure [azurerm_storage_account.public_network_access_enabled] to false to disable public access. It is recommended to explicitly allow access to trusted users or IPs. For Storage Accounts that don't require public access it is recommended to use private endpoints to only grant private access
   # Drata: Set [azurerm_storage_account.min_tls_version] to TLS1_2 to ensure security policies are configured using the latest secure TLS version
   name                      = "securitystorageaccount-${var.environment}${random_integer.rnd_int.result}"
   resource_group_name       = azurerm_resource_group.example.name
