@@ -208,6 +208,7 @@ resource "aws_iam_role_policy" "ec2policy" {
   role = aws_iam_role.ec2role.id
 
   policy = <<EOF
+  # Drata: Explicitly scope [aws_iam_role.inline_policy.policy] resource to ensure minimum necessary access. Avoid using insecure allow-all ([*]) access patterns
   # Drata: Explicitly scope [aws_iam_role.inline_policy.policy] action to ensure minimum necessary access. Avoid using insecure allow-all (*) access patterns
 {
   "Version": "2012-10-17",
