@@ -1,5 +1,6 @@
 # Create a new load balancer
 resource "aws_elb" "weblb" {
+  # Drata: Configure [aws_elb.access_logs.enabled] to ensure that security-relevant events are logged to detect malicious activity
   name = "weblb-terraform-elb"
 
   listener {
