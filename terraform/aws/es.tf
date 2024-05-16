@@ -1,4 +1,5 @@
 resource "aws_elasticsearch_domain" "monitoring-framework" {
+  # Drata: Set [aws_elasticsearch_domain.encrypt_at_rest.enabled] to true to ensure transparent data encryption is enabled
   domain_name           = "tg-${var.environment}-es"
   elasticsearch_version = "2.3"
 
