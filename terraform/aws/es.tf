@@ -1,4 +1,5 @@
 resource "aws_elasticsearch_domain" "monitoring-framework" {
+  # Drata: Set [aws_elasticsearch_domain.domain_endpoint_options.enforce_https] to true to ensure secure protocols are being used to encrypt resource traffic
   domain_name           = "tg-${var.environment}-es"
   elasticsearch_version = "2.3"
 
