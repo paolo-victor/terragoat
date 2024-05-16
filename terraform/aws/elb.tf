@@ -1,5 +1,6 @@
 # Create a new load balancer
 resource "aws_elb" "weblb" {
+  # Drata: Configure [aws_elb.internal] to true to disable public access. It is recommended to explicitly allow access to trusted users or IPs. Exclude this finding if your business use-case requires ELB V1 to be publicly available
   # Drata: Configure [aws_elb.access_logs.enabled] to ensure that security-relevant events are logged to detect malicious activity
   name = "weblb-terraform-elb"
 
