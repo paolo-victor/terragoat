@@ -22,6 +22,7 @@ resource "google_bigquery_dataset" "dataset" {
   dataset_id = "terragoat_${var.environment}_dataset"
   access {
     special_group = "allAuthenticatedUsers"
+    # Drata: Explicitly scope [google_bigquery_dataset.access.special_group] to ensure minimum necessary access. Avoid using insecure allow-all ([allusers, allauthenticatedusers]) access patterns
     role          = "READER"
   }
   labels = {
