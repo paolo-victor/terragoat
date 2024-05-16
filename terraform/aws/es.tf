@@ -1,4 +1,5 @@
 resource "aws_elasticsearch_domain" "monitoring-framework" {
+  # Drata: Set [aws_elasticsearch_domain.domain_endpoint_options.tls_security_policy] to Policy-Min-TLS-1-2-2019-07 to ensure security policies are configured using the latest secure TLS version
   domain_name           = "tg-${var.environment}-es"
   elasticsearch_version = "2.3"
 
