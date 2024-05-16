@@ -1,4 +1,5 @@
 resource "google_sql_database_instance" "master_instance" {
+  # Drata: Set [google_sql_database_instance.settings.ip_configuration.require_ssl] to True to ensure secure protocols are being used to encrypt resource traffic
   name             = "terragoat-${var.environment}-master"
   database_version = "POSTGRES_11"
   region           = var.region
