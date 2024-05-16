@@ -1,4 +1,5 @@
 resource "aws_rds_cluster" "app1-rds-cluster" {
+  # Drata: Set [aws_rds_cluster.storage_encrypted] to true to ensure transparent data encryption is enabled
   cluster_identifier      = "app1-rds-cluster"
   allocated_storage       = 10
   backup_retention_period = 0
