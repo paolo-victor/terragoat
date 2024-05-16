@@ -14,6 +14,7 @@ resource "google_sql_database_instance" "master_instance" {
     }
     backup_configuration {
       enabled = false
+    # Drata: Ensure that SQL database instance is not publicly accessible by giving it a private IP. Define [google_sql.sql_database_instance.settings.ip_configuration.private_network] to use private IPs while connecting to SQL database instance
     }
   }
 }
