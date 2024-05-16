@@ -4,6 +4,7 @@ resource "azurerm_storage_account" "security_storage_account" {
   location                  = azurerm_resource_group.example.location
   account_tier              = "Standard"
   account_replication_type  = "LRS"
+  # Drata: Configure [azurerm_storage_account.account_replication_type] to improve infrastructure availability and resilience. To create highly available Storage Accounts, set azurerm_storage_account.account_replication_type to a geo-redundant storage option by selecting one of the following SKUs: ['standard_grs', 'standard_gzrs', 'standard_ragrs', 'standard_ragzrs', 'grs', 'gzrs', 'ragrs', 'ragzrs']
   enable_https_traffic_only = true
   tags = {
     git_commit           = "a1d1c1ce31a1bde6dafa188846d90eca82abe5fd"
