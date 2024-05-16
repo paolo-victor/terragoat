@@ -6,7 +6,7 @@ resource "aws_elb" "weblb" {
     instance_port     = 8000
     instance_protocol = "http"
     lb_port           = 80
-    lb_protocol       = "http"
+    lb_protocol       = "HTTPS"
   }
 
   health_check {
