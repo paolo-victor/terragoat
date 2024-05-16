@@ -1,4 +1,5 @@
 resource "azurerm_key_vault" "example" {
+  # Drata: Configure [azurerm_key_vault.public_network_access_enabled] to false to disable public access. It is recommended to explicitly allow access to trusted users or IPs. If your business use-case requires public access, define [microsoft_key_vault.vaults.network_acls] appropriately to restrict access
   name                = "terragoat-key-${var.environment}${random_integer.rnd_int.result}"
   location            = azurerm_resource_group.example.location
   resource_group_name = azurerm_resource_group.example.name
