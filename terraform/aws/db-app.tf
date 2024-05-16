@@ -14,7 +14,7 @@ resource "aws_db_instance" "default" {
   username                = "admin"
   password                = var.password
   apply_immediately       = true
-  multi_az                = false
+  multi_az                = true
   backup_retention_period = 0
   # Drata: Specify [aws_db_instance.backup_retention_period] to ensure sensitive data is only available when necessary. Setting backup retention to 0 will disable automatic backups
   storage_encrypted       = true
