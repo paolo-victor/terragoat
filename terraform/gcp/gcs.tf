@@ -1,4 +1,5 @@
 resource "google_storage_bucket" "terragoat_website" {
+  # Drata: Set [google_storage_bucket.versioning.enabled] to true to enable infrastructure versioning and prevent accidental deletions and overrides
   name          = "terragot-${var.environment}"
   location      = var.location
   force_destroy = true
