@@ -1,4 +1,5 @@
 resource "azurerm_application_gateway" "network" {
+  # Drata: Specify [azurerm_application_gateway.ssl_policy] to ensure strong and secure TLS/SSL cipher suites are being used for data in transit encryption. Select a predefined or custom policy type depending on the cipher suite requirements for your use-case
   name                = "example-appgateway"
   resource_group_name = "example-resourceGroup"
   location            = "example --West-US"
