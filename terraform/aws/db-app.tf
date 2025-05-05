@@ -100,6 +100,7 @@ resource "aws_db_subnet_group" "default" {
   description = "Terraform DB Subnet Group"
 
   tags = merge({
+    # Drata: Configure [aws_db_subnet_group.tags] to ensure that organization-wide tagging conventions are followed.
     Name        = "sg-${local.resource_prefix.value}"
     Environment = local.resource_prefix.value
     }, {
