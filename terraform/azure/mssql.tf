@@ -94,6 +94,7 @@ resource "azurerm_mssql_server" "mssql4" {
 }
 
 resource "azurerm_mssql_server" "mssql5" {
+  # Drata: Set [azurerm_mssql_server.public_network_access_enabled] to [false] to prevent unintended public access. Ensure that only trusted users and IP addresses are explicitly allowed access, if a publicly accessible service is required for your business use case this finding can be excluded
   name                         = "mssql5-${var.environment}${random_integer.rnd_int.result}"
   resource_group_name          = azurerm_resource_group.example.name
   location                     = azurerm_resource_group.example.location
