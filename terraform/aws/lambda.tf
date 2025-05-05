@@ -30,6 +30,7 @@ EOF
 }
 
 resource "aws_lambda_function" "analysis_lambda" {
+  # Drata: Configure [aws_lambda_function.vpc_config] to improve network monitoring capabilities and ensure network communication is restricted to trusted sources. Exclude this finding if there is a need for your Lambda Function to access external endpoints
   # lambda have plain text secrets in environment variables
   filename      = "resources/lambda_function_payload.zip"
   function_name = "${local.resource_prefix.value}-analysis"
