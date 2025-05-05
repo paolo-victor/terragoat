@@ -27,6 +27,7 @@ resource azurerm_linux_virtual_machine "linux_machine" {
   }
 
   tags = merge({
+    # Drata: Configure [azurerm_linux_virtual_machine.tags] to ensure that organization-wide tagging conventions are followed.
     terragoat   = true
     environment = var.environment
     }, {
