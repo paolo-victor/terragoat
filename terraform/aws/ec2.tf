@@ -194,6 +194,7 @@ resource "aws_route_table" "web_rtb" {
   vpc_id = aws_vpc.web_vpc.id
 
   tags = merge({
+    # Drata: Configure [aws_route_table.tags] to ensure that organization-wide tagging conventions are followed.
     Name = "${local.resource_prefix.value}-rtb"
     }, {
     git_commit           = "d68d2897add9bc2203a5ed0632a5cdd8ff8cefb0"
