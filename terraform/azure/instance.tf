@@ -7,6 +7,7 @@ resource random_string "password" {
 }
 
 resource azurerm_linux_virtual_machine "linux_machine" {
+  # Drata: It is recommended to create two or more virtual machines within an availability set to improve application redundancy and availability.
   admin_username                  = "terragoat-linux"
   admin_password                  = random_string.password.result
   location                        = var.location
