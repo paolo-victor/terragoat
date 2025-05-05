@@ -1,4 +1,5 @@
 resource "azurerm_key_vault" "example" {
+  # Drata: Set [azurerm_key_vault.enable_rbac_authorization] to [true] to configure resource authentication using role based access control (RBAC). RBAC allows for more granularity when defining permissions for users and workloads that can access a resource
   name                = "terragoat-key-${var.environment}${random_integer.rnd_int.result}"
   location            = azurerm_resource_group.example.location
   resource_group_name = azurerm_resource_group.example.name
