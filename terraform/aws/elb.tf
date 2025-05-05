@@ -26,6 +26,7 @@ resource "aws_elb" "weblb" {
   connection_draining_timeout = 400
 
   tags = merge({
+    # Drata: Configure [aws_elb.tags] to ensure that organization-wide tagging conventions are followed.
     Name = "foobar-terraform-elb"
     }, {
     git_commit           = "d68d2897add9bc2203a5ed0632a5cdd8ff8cefb0"
