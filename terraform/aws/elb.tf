@@ -1,5 +1,6 @@
 # Create a new load balancer
 resource "aws_elb" "weblb" {
+  # Drata: Set [aws_elb.internal] to [true] to prevent unintended public access. Ensure that only trusted users and IP addresses are explicitly allowed access, if a publicly accessible service is required for your business use case this finding can be excluded
   name = "weblb-terraform-elb"
 
   listener {
