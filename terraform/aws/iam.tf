@@ -27,6 +27,7 @@ resource "aws_iam_user_policy" "userpolicy" {
   user = "${aws_iam_user.user.name}"
 
   policy = <<EOF
+  # Drata: Explicitly define resources for [aws_iam_user_policy.policy] in adherence with the principal of least privilege. Avoid the use of overly permissive allow-all access patterns such as ([*]). It is recommended to use group policies over user policies when possible.
 {
   "Version": "2012-10-17",
   "Statement": [
