@@ -62,6 +62,7 @@ resource azurerm_windows_virtual_machine "windows_machine" {
   }
 
   tags = merge({
+    # Drata: Configure [azurerm_windows_virtual_machine.tags] to ensure that organization-wide tagging conventions are followed.
     terragoat   = true
     environment = var.environment
     }, {
