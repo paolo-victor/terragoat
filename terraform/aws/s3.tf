@@ -67,6 +67,7 @@ resource "aws_s3_bucket" "operations" {
   # bucket does not have access logs
   bucket = "${local.resource_prefix.value}-operations"
   acl    = "private"
+  # Drata: It is recommended to use [s3.bucket.public_access_block_configuration] to control S3 bucket public access over Canned Access Control Lists (ACLs)
   versioning {
     enabled = true
   }
