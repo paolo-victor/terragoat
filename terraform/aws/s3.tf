@@ -1,4 +1,5 @@
 resource "aws_s3_bucket" "data" {
+  # Drata: Set [aws_s3_bucket_versioning.versioning_configuration.status] to [Enabled] to enable infrastructure versioning and prevent accidental deletions and overrides
   # bucket is public
   # bucket is not encrypted
   # bucket does not have access logs
