@@ -16,6 +16,7 @@ resource "azurerm_key_vault" "example" {
     ]
   }
   tags = merge({
+    # Drata: Configure [azurerm_key_vault.tags] to ensure that organization-wide tagging conventions are followed.
     environment = var.environment
     terragoat   = true
     }, {
