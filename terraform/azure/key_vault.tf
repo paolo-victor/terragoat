@@ -31,6 +31,7 @@ resource "azurerm_key_vault" "example" {
 }
 
 resource "azurerm_key_vault_key" "generated" {
+  # Drata: Configure [azurerm_key_vault_key.rotation_policy] to minimize the risk of key exposure by ensuring that sensitive values are periodically rotated
   name         = "terragoat-generated-certificate-${var.environment}"
   key_vault_id = azurerm_key_vault.example.id
   key_type     = "RSA"
