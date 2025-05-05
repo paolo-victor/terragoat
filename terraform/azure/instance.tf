@@ -42,6 +42,7 @@ resource azurerm_linux_virtual_machine "linux_machine" {
 }
 
 resource azurerm_windows_virtual_machine "windows_machine" {
+  # Drata: It is recommended to create two or more virtual machines within an availability set to improve application redundancy and availability.
   admin_password        = random_string.password.result
   admin_username        = "tg-${var.environment}"
   location              = var.location
