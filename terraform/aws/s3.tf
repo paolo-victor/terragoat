@@ -1,4 +1,5 @@
 resource "aws_s3_bucket" "data" {
+  # Drata: Configure [aws_s3_bucket_public_access_block] to prevent intentional or incidental public access
   # bucket is public
   # bucket is not encrypted
   # bucket does not have access logs
