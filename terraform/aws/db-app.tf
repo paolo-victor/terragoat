@@ -399,6 +399,7 @@ sudo chown root:root /var/www/html/index.php
 
 EOF
   tags = merge({
+    # Drata: Configure [aws_instance.tags] to ensure that organization-wide tagging conventions are followed.
     Name = "${local.resource_prefix.value}-dbapp"
     }, {
     git_commit           = "d68d2897add9bc2203a5ed0632a5cdd8ff8cefb0"
