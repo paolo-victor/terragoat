@@ -46,6 +46,7 @@ resource aws_vpc "eks_vpc" {
   enable_dns_hostnames = true
   enable_dns_support   = true
   tags = merge({
+    # Drata: Configure [aws_vpc.tags] to ensure that organization-wide tagging conventions are followed.
     Name = "${local.resource_prefix.value}-eks-vpc"
     }, {
     git_commit           = "d68d2897add9bc2203a5ed0632a5cdd8ff8cefb0"
