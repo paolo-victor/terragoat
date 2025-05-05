@@ -1,4 +1,5 @@
 resource "aws_kms_key" "logs_key" {
+  # Drata: Define [aws_kms_key.policy] to restrict access to your resource. Follow the principal of minimum necessary access, ensuring permissions are scoped to trusted entities. Exclude this finding if you are managing access via IAM policies
   # key does not have rotation enabled
   description = "${local.resource_prefix.value}-logs bucket key"
 
