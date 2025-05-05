@@ -22,6 +22,7 @@ resource "google_container_cluster" "workload_cluster" {
 }
 
 resource "google_container_node_pool" "custom_node_pool" {
+  # Drata: Configure [google_container_node_pool.node_config.labels] to ensure that organization-wide label conventions are followed.
   cluster  = google_container_cluster.workload_cluster.name
   location = var.region
 
