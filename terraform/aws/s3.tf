@@ -45,6 +45,7 @@ resource "aws_s3_bucket" "financials" {
   # bucket does not have versioning
   bucket        = "${local.resource_prefix.value}-financials"
   acl           = "private"
+  # Drata: It is recommended to use [s3.bucket.public_access_block_configuration] to control S3 bucket public access over Canned Access Control Lists (ACLs)
   force_destroy = true
   tags = merge({
     Name        = "${local.resource_prefix.value}-financials"
