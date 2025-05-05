@@ -90,6 +90,7 @@ resource "aws_s3_bucket" "data_science" {
   # bucket is not encrypted
   bucket = "${local.resource_prefix.value}-data-science"
   acl    = "private"
+  # Drata: It is recommended to use [s3.bucket.public_access_block_configuration] to control S3 bucket public access over Canned Access Control Lists (ACLs)
   versioning {
     enabled = true
   }
