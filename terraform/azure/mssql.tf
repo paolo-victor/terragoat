@@ -132,6 +132,7 @@ resource "azurerm_mssql_server" "mssql6" {
 }
 
 resource "azurerm_mssql_server" "mssql7" {
+  # Drata: Set [azurerm_mssql_server.minimum_tls_version] to [1.2] to ensure security policies are configured using the latest secure TLS version
   name                         = "mssql7-${var.environment}${random_integer.rnd_int.result}"
   resource_group_name          = azurerm_resource_group.example.name
   location                     = azurerm_resource_group.example.location
