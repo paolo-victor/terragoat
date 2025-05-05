@@ -1,4 +1,5 @@
 resource "azurerm_key_vault" "example" {
+  # Drata: Set [azurerm_key_vault.public_network_access_enabled] to [false] to prevent unintended public access. Ensure that only trusted users and IP addresses are explicitly allowed access, if a publicly accessible service is required for your business use case this finding can be excluded
   name                = "terragoat-key-${var.environment}${random_integer.rnd_int.result}"
   location            = azurerm_resource_group.example.location
   resource_group_name = azurerm_resource_group.example.name
