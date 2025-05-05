@@ -48,6 +48,7 @@ resource "aws_db_option_group" "default" {
   option_group_description = "Terraform OG"
 
   tags = merge({
+    # Drata: Configure [aws_db_option_group.tags] to ensure that organization-wide tagging conventions are followed.
     Name        = "${local.resource_prefix.value}-og"
     Environment = local.resource_prefix.value
     }, {
