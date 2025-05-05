@@ -38,7 +38,7 @@ resource "aws_lambda_function" "analysis_lambda" {
 
   source_code_hash = "${filebase64sha256("resources/lambda_function_payload.zip")}"
 
-  runtime = "nodejs12.x"
+  runtime = "nodejs20"
 
   environment {
     variables = {
