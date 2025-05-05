@@ -1,4 +1,5 @@
 resource azurerm_kubernetes_cluster "k8s_cluster" {
+  # Drata: Set [azurerm_kubernetes_cluster.automatic_channel_upgrade] to any of ['stable', 'rapid', 'patch'] to automatically upgrade AKS cluster to the latest Kubernetes version
   dns_prefix          = "terragoat-${var.environment}"
   location            = var.location
   name                = "terragoat-aks-${var.environment}"
