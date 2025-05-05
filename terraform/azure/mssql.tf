@@ -1,4 +1,5 @@
 resource "azurerm_storage_account" "security_storage_account" {
+  # Drata: Set [azurerm_storage_account.public_network_access_enabled] to [false] to prevent unintended public access. Ensure that only trusted users and IP addresses are explicitly allowed access, if a publicly accessible service is required for your business use case this finding can be excluded
   name                      = "securitystorageaccount-${var.environment}${random_integer.rnd_int.result}"
   resource_group_name       = azurerm_resource_group.example.name
   location                  = azurerm_resource_group.example.location
