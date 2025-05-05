@@ -189,6 +189,7 @@ resource "aws_iam_role" "ec2role" {
 EOF
 
   tags = merge({
+    # Drata: Configure [aws_iam_role.tags] to ensure that organization-wide tagging conventions are followed.
     Name        = "${local.resource_prefix.value}-role"
     Environment = local.resource_prefix.value
     }, {
