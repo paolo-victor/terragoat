@@ -18,6 +18,7 @@ resource "aws_elb" "weblb" {
   }
 
   subnets                     = [aws_subnet.web_subnet.id]
+  # Drata: Configure [aws_elb.subnets] to improve infrastructure availability and resilience. Define at least 2 subnets or availability zones on your load balancer to enable zone redundancy
   security_groups             = [aws_security_group.web-node.id]
   instances                   = [aws_instance.web_host.id]
   cross_zone_load_balancing   = true
