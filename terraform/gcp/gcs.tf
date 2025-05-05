@@ -1,4 +1,5 @@
 resource "google_storage_bucket" "terragoat_website" {
+  # Drata: Set [google_storage_bucket.uniform_bucket_level_access] to [true] to configure resource access using IAM policies
   name          = "terragot-${var.environment}"
   location      = var.location
   force_destroy = true
