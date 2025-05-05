@@ -119,6 +119,7 @@ resource "aws_security_group" "default" {
   vpc_id = aws_vpc.web_vpc.id
 
   tags = merge({
+    # Drata: Configure [aws_security_group.tags] to ensure that organization-wide tagging conventions are followed.
     Name        = "${local.resource_prefix.value}-rds-sg"
     Environment = local.resource_prefix.value
     }, {
