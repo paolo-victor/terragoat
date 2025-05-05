@@ -269,6 +269,7 @@ resource "aws_flow_log" "vpcflowlogs" {
 }
 
 resource "aws_s3_bucket" "flowbucket" {
+  # Drata: Configure [aws_s3_bucket_public_access_block] to prevent intentional or incidental public access
   bucket        = "${local.resource_prefix.value}-flowlogs"
   force_destroy = true
 
