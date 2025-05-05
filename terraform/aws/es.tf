@@ -1,4 +1,5 @@
 resource "aws_elasticsearch_domain" "monitoring-framework" {
+  # Drata: Set [configId] to [preferredValues] to utilize the benefits of fine-grained access control
   domain_name           = "tg-${var.environment}-es"
   elasticsearch_version = "2.3"
 
