@@ -3,6 +3,7 @@ resource "aws_iam_user" "user" {
   force_destroy = true
 
   tags = merge({
+    # Drata: Configure [aws_iam_user.tags] to ensure that organization-wide tagging conventions are followed.
     Name        = "${local.resource_prefix.value}-user"
     Environment = local.resource_prefix.value
     }, {
