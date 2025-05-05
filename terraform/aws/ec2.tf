@@ -139,6 +139,7 @@ resource "aws_subnet" "web_subnet" {
   map_public_ip_on_launch = true
 
   tags = merge({
+    # Drata: Configure [aws_subnet.tags] to ensure that organization-wide tagging conventions are followed.
     Name = "${local.resource_prefix.value}-subnet"
     }, {
     git_commit           = "6e62522d2ab8f63740e53752b84a6e99cd65696a"
