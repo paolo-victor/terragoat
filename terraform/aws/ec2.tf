@@ -18,6 +18,7 @@ export AWS_DEFAULT_REGION=us-west-2
 echo "<h1>Deployed via Terraform</h1>" | sudo tee /var/www/html/index.html
 EOF
   tags = merge({
+    # Drata: Configure [aws_instance.tags] to ensure that organization-wide tagging conventions are followed.
     Name = "${local.resource_prefix.value}-ec2"
     }, {
     git_commit           = "d68d2897add9bc2203a5ed0632a5cdd8ff8cefb0"
