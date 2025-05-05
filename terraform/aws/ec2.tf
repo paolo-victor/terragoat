@@ -269,6 +269,7 @@ resource "aws_flow_log" "vpcflowlogs" {
 }
 
 resource "aws_s3_bucket" "flowbucket" {
+  # Drata: Set [aws_s3_bucket_versioning.versioning_configuration.status] to [Enabled] to enable infrastructure versioning and prevent accidental deletions and overrides
   bucket        = "${local.resource_prefix.value}-flowlogs"
   force_destroy = true
 
