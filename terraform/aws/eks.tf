@@ -65,6 +65,7 @@ resource aws_subnet "eks_subnet1" {
   availability_zone       = "${var.region}a"
   map_public_ip_on_launch = true
   tags = merge({
+    # Drata: Configure [aws_subnet.tags] to ensure that organization-wide tagging conventions are followed.
     Name                                            = "${local.resource_prefix.value}-eks-subnet"
     "kubernetes.io/cluster/${local.eks_name.value}" = "shared"
     }, {
